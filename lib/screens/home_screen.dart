@@ -31,49 +31,28 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             FloatingActionButton(
               //child: const Icon( Icons.add ),
               child: const Text('-1'),
-              onPressed: () { 
-                print('Pulsación -1 registrada'); 
-                contador--;
-                print('$contador');
-                setState(() {
-                  
-                });
-              },
+              onPressed:() => setState(() => contador--)
             ),
 
-            const SizedBox( width: 20), // 20 unidades de ancho
+            //const SizedBox( width: 20), // 20 unidades de ancho
 
             FloatingActionButton(
               //child: const Icon( Icons.add ),
               child: const Text('0'),
-              onPressed: () { 
-                print('Pulsación 0 registrada'); 
-                contador = 0;
-                print('$contador');
-                setState(() {
-                  
-                });
-              },
+              onPressed:() => setState(() => contador=0)
             ),
             
-            const SizedBox( width: 20), // 20 unidades de ancho
+            //const SizedBox( width: 20), // 20 unidades de ancho
 
             FloatingActionButton(
               //child: const Icon( Icons.add ),
               child: const Text('+1'),
-              onPressed: () { 
-                print('Pulsación +1 registrada'); 
-                contador++;
-                print('$contador');
-                setState(() {
-                  
-                });
-              },
+              onPressed:() => setState(() => contador++)
             ),
           ],
         ),
