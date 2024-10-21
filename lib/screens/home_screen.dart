@@ -10,6 +10,11 @@ class HomeScreen extends StatefulWidget{
 class _HomeScreenState extends State<HomeScreen> {
   int contador = 0;
 
+  void incrementar() {
+    contador++;
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     const tamano30 = TextStyle(fontSize: 30 );
@@ -30,32 +35,49 @@ class _HomeScreenState extends State<HomeScreen> {
           )
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-        floatingActionButton: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            FloatingActionButton(
-              //child: const Icon( Icons.add ),
-              child: const Text('-1'),
-              onPressed:() => setState(() => contador--)
-            ),
+        floatingActionButton: CustomFloatingActionButton(incrementarFn: incrementar),
+    );
+  }
+}
 
-            //const SizedBox( width: 20), // 20 unidades de ancho
+class CustomFloatingActionButton extends StatelessWidget {
 
-            FloatingActionButton(
-              //child: const Icon( Icons.add ),
-              child: const Text('0'),
-              onPressed:() => setState(() => contador=0)
-            ),
-            
-            //const SizedBox( width: 20), // 20 unidades de ancho
+  final Function incrementarFn;
 
-            FloatingActionButton(
-              //child: const Icon( Icons.add ),
-              child: const Text('+1'),
-              onPressed:() => setState(() => contador++)
-            ),
-          ],
+  const CustomFloatingActionButton({
+    super.key, required this.incrementarFn,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        FloatingActionButton(
+          //child: const Icon( Icons.add ),
+          backgroundColor: Colors.blue,
+          child: const Text('-1', style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),),
+          onPressed:null
         ),
+    
+        //const SizedBox( width: 20), // 20 unidades de ancho
+    
+        FloatingActionButton(
+          //child: const Icon( Icons.add ),
+          backgroundColor: Colors.blue,
+          child: const Text('0', style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),),
+          onPressed:null
+        ),
+        
+        //const SizedBox( width: 20), // 20 unidades de ancho
+    
+        FloatingActionButton(
+          //child: const Icon( Icons.add ),
+          backgroundColor: Colors.blue,
+          child: const Text('+1', style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),),
+          onPressed: () => incrementarFn()
+        ),
+      ],
     );
   }
 }
