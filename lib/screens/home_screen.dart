@@ -20,27 +20,44 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: Colors.blue,
         elevation: 0.0,
       ),
-      body: const Center( 
+      body: Center( 
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text('Número de clics', style: tamano30),
+              const Text('Número de clics', style: tamano30),
               Text('$contador', style: tamano30),
             ],
           )
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-        floatingActionButton: FloatingActionButton(
-          //child: const Icon( Icons.add ),
-          child: const Text('Añadir'),
-          onPressed: () { 
-            print('Pulsación registrada'); 
-            contador++;
-            print('$contador');
-            setState(() {
-              
-            });
-          },
+        floatingActionButton: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            FloatingActionButton(
+              //child: const Icon( Icons.add ),
+              child: const Text('-1'),
+              onPressed: () { 
+                print('Pulsación -1 registrada'); 
+                contador--;
+                print('$contador');
+                setState(() {
+                  
+                });
+              },
+            ),
+            FloatingActionButton(
+              //child: const Icon( Icons.add ),
+              child: const Text('+1'),
+              onPressed: () { 
+                print('Pulsación +1 registrada'); 
+                contador++;
+                print('$contador');
+                setState(() {
+                  
+                });
+              },
+            ),
+          ],
         ),
     );
   }
