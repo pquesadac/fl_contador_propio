@@ -45,6 +45,24 @@ class _HomeScreenState extends State<HomeScreen> {
                 });
               },
             ),
+
+            const SizedBox( width: 20), // 20 unidades de ancho
+
+            FloatingActionButton(
+              //child: const Icon( Icons.add ),
+              child: const Text('0'),
+              onPressed: () { 
+                print('Pulsación 0 registrada'); 
+                contador = 0;
+                print('$contador');
+                setState(() {
+                  
+                });
+              },
+            ),
+            
+            const SizedBox( width: 20), // 20 unidades de ancho
+
             FloatingActionButton(
               //child: const Icon( Icons.add ),
               child: const Text('+1'),
