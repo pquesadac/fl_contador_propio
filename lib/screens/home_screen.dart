@@ -22,10 +22,15 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Contador', style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),),
-        backgroundColor: Colors.blue,
-        elevation: 0.0,
-      ),
+  title: Center(
+    child: const Text(
+      'Calculadora',
+      style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
+    ),
+  ),
+  backgroundColor: Colors.blue,
+  elevation: 0.0,
+),
       body: Center( 
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
